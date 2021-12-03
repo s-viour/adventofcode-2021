@@ -1,3 +1,8 @@
+module Day2
+  ( dayMain1
+  , dayMain2
+  ) where
+
 import System.IO ( hPutStrLn, stderr )
 import System.Environment ( getArgs )
 
@@ -38,16 +43,8 @@ solve1 dirs = uncurry (*) $ foldr handleDirection1 (0, 0) dirs
 solve2 :: [Direction] -> Int
 solve2 dirs = (\(_, a, b) -> a * b) $ foldr handleDirection2 (0, 0, 0) dirs
 
-main :: IO ()
-main = do
-  args <- getArgs
-  if null args then usage
-  else if head args == "solve1" then 
-    getDirections >>= (print . solve1)
-  else if head args == "solve2" then
-    getDirections >>= (print . solve2 . reverse)
-  else
-    usage
+dayMain1 :: IO ()
+dayMain1 = getDirections >>= (print . solve1)
 
-usage :: IO ()
-usage = hPutStrLn stderr "usage: day2 [solve1|solve2]"
+dayMain2 :: IO ()
+dayMain2 = getDirections >>= (print . solve2 . reverse)

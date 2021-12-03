@@ -1,4 +1,7 @@
-module Main where
+module Day1
+  ( dayMain1
+  , dayMain2
+  ) where
 
 import System.Environment ( getArgs ) 
 import System.IO ( stderr, hPutStrLn )
@@ -35,12 +38,8 @@ getSolver args
   | head args == "solve2" = Just solve2
   | otherwise = Nothing
 
-main :: IO ()
-main = do
-  values <- getValues
-  args <- getArgs
-  case getSolver args of
-    Nothing -> usage
-    Just s -> (print .s) values
-  where
-    usage = hPutStrLn stderr "usage: day1 [solve1|solve2]"
+dayMain1 :: IO ()
+dayMain1 = getValues >>= (print . solve1)
+
+dayMain2 :: IO ()
+dayMain2 = getValues >>= (print . solve2)
