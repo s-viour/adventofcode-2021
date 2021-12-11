@@ -62,11 +62,11 @@ allPoints (Line ((x1, y1), (x2, y2))) =
     f1
       | x1 > x2 = (\x -> x - 1)
       | x1 < x2 = (+ 1)
-      | otherwise = (+ 0)
+      | otherwise = id
     f2
       | y1 > y2 = (\y -> y - 1)
       | y1 < y2 = (+ 1)
-      | otherwise = (+ 0)
+      | otherwise = id
     pts = iterate (\(a, b) -> (f1 a, f2 b)) (x1, y1)
   in
     takeWhile (\(a, b) -> a /= x2 || b /= y2) pts ++ [(x2, y2)]
