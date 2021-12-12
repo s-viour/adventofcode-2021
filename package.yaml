@@ -23,6 +23,7 @@ dependencies:
 - containers
 - matrix
 - split
+- vector
 
 library:
   source-dirs: src
