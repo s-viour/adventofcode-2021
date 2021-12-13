@@ -11,6 +11,7 @@ import qualified Day4
 import qualified Day5
 import qualified Day6
 import qualified Day7
+import qualified Day8
 
 days :: Map Int (IO (), IO ())
 days = Map.fromList
@@ -21,4 +22,5 @@ days = Map.fromList
   , (5, (Day5.dayMain1, Day5.dayMain2))
   , (6, (Day6.dayMain1, Day6.dayMain2))
   , (7, (Day7.dayMain1, Day7.dayMain2))
+  , (8, (Day8.dayMain1, Day8.dayMain2))
   ]
